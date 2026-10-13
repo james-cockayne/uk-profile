@@ -59,14 +59,23 @@
     "website": {
       "name": "website",
       "type": "string",
+      "format": "uri",
       "title": "Website",
       "description": "The URL (website address) of the organization.",
-      "format": "uri",
       "constraints": {
         "unique": false
       },
       "example": "http://example.com",
       "core": "Y"
+    },
+    "additional_websites": {
+      "name": "additional_websites",
+      "title": "Additional Websites",
+      "description": "The details of additional websites for the organization.",
+      "type": "array",
+      "items": {
+        "$ref": "url.json"
+      }
     },
     "logo": {
       "name": "logo",
@@ -100,6 +109,15 @@
       },
       "example": "cd09a387-91f4-4555-94ec-e799c35344cd"
     },
+    "programs": {
+      "name": "programs",
+      "type": "array",
+      "title": "Programs",
+      "description": "The details of collection of related services.",
+      "items": {
+        "$ref": "program.json"
+      }
+    },
     "organization_identifiers": {
       "name": "organization_identifiers",
       "type": "array",
@@ -117,11 +135,21 @@
       "items": {
         "$ref": "attribute.json"
       }
+    },
+    "metadata": {
+      "name": "metadata",
+      "type": "array",
+      "title": "Metadata",
+      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
+      "items": {
+        "$ref": "metadata.json"
+      }
     }
   },
   "required": [
     "id",
     "name",
     "description"
-  ]
+  ],
+  "$id": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/organization.json"
 }

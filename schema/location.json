@@ -26,7 +26,7 @@
       "name": "location_type",
       "type": "string",
       "title": "Location Type",
-      "description": "The type of location, which may be either physical, postal, or virtual.",
+      "description": "The type of location, which may be either `physical`, `postal`, or `virtual`.",
       "constraints": {
         "unique": false
       },
@@ -128,10 +128,20 @@
       "items": {
         "$ref": "attribute.json"
       }
+    },
+    "metadata": {
+      "name": "metadata",
+      "type": "array",
+      "title": "Metadata",
+      "description": "The metadata table contains a record of the changes that have been made to the data in order to maintain provenance information.",
+      "items": {
+        "$ref": "metadata.json"
+      }
     }
   },
   "required": [
     "id",
     "location_type"
-  ]
+  ],
+  "$id": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/location.json"
 }

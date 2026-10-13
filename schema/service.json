@@ -68,6 +68,15 @@
       "example": "http://example.com/counselling",
       "core": "Y"
     },
+    "additional_urls": {
+      "name": "additional_urls",
+      "type": "array",
+      "title": "Additional URLs",
+      "description": "The details of additional URLs for the service",
+      "items": {
+        "$ref": "url.json"
+      }
+    },
     "email": {
       "name": "email",
       "type": "string",
@@ -188,6 +197,29 @@
       "description": "The details of when a service or location is open. Entries are RFC 5545 RRULES.",
       "items": {
         "$ref": "schedule.json"
+      },
+      "deprecated": true,
+      "deprecatedDetails": {
+        "deprecatedVersion": "3.3",
+        "description": "This field is deprecated in favor of `operating_hours` and `events` to promote a semantic distinction between operating hours and events."
+      }
+    },
+    "operating_hours": {
+      "name": "operating_hours",
+      "type": "array",
+      "title": "Operating Hours",
+      "description": "An array of `Schedule` objects which detail when a service operates",
+      "items": {
+        "$ref": "schedule.json"
+      }
+    },
+    "events": {
+      "name": "events",
+      "type": "array",
+      "title": "Events",
+      "description": "An array of `Schedule` objects which give details of events associated with the Service. These may or may not be aligned with the Service's regular operating hours.",
+      "items": {
+        "$ref": "schedule.json"
       }
     },
     "service_areas": {
@@ -241,6 +273,21 @@
         "$ref": "cost_option.json"
       }
     },
+    "program": {
+      "name": "program",
+      "title": "Program",
+      "description": "The details of collections of related services.",
+      "$ref": "program.json"
+    },
+    "required_documents": {
+      "name": "required_documents",
+      "type": "array",
+      "title": "Required Documents",
+      "description": "The details of any documents that are required in order to access or use services.",
+      "items": {
+        "$ref": "required_document.json"
+      }
+    },
     "contacts": {
       "name": "contacts",
       "type": "array",
@@ -248,6 +295,15 @@
       "description": "The details of the named contacts for services and organizations.",
       "items": {
         "$ref": "contact.json"
+      }
+    },
+    "capacities": {
+      "name": "capacities",
+      "type": "array",
+      "title": "Capacities",
+      "description": "The details of capacities of this service. See `service_capacity`.",
+      "items": {
+        "$ref": "service_capacity.json"
       }
     },
     "attributes": {
@@ -258,6 +314,15 @@
       "items": {
         "$ref": "attribute.json"
       }
+    },
+    "metadata": {
+      "name": "metadata",
+      "type": "array",
+      "title": "Metadata",
+      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
+      "items": {
+        "$ref": "metadata.json"
+      }
     }
   },
   "required": [
@@ -267,5 +332,6 @@
   ],
   "tabular_required": [
     "organization_id"
-  ]
+  ],
+  "$id": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/service.json"
 }

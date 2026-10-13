@@ -86,7 +86,7 @@
       "name": "freq",
       "type": "string",
       "title": "Frequency",
-      "description": "iCal - How often the frequency repeats.",
+      "description": "iCal - How often the frequency repeats. Values can be `WEEKLY` or `MONTHLY`",
       "constraints": {
         "unique": false
       },
@@ -195,9 +195,26 @@
         "unique": false
       },
       "example": "Some of our staff will be unavailable during their lunch break which may be any 30 minute period between 1200 and 1400"
+    },
+    "group": {
+      "name": "group",
+      "type": "string",
+      "title": "Group",
+      "description": "A string label acting as a group identifier, allowing different schedules to be grouped together. For example, two schedules with the group `regular-hours` would be grouped separately from two schedules with the label `holiday-schedule`. The value of this field does not need to be readable or meaningful to humans, but it is recommended to make it so.",
+      "example": "holiday-schedule-2026"
+    },
+    "metadata": {
+      "name": "metadata",
+      "type": "array",
+      "title": "Metadata",
+      "description": "A record of the changes that have been made to the data in order to maintain provenance information.",
+      "items": {
+        "$ref": "metadata.json"
+      }
     }
   },
   "required": [
     "id"
-  ]
+  ],
+  "$id": "https://raw.githubusercontent.com/openreferral/uk-profile/main/schema/schedule.json"
 }
